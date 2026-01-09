@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumary ABA: Placeholder Authorization Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Vibrant Tech (Indigo #4F46E5, Cyan #06B6D4, Rose #E11D48, Amber #F59E0B) -->
+    <!-- Plan:
+         1. Intro: Core Concept with simplified view disclaimer.
+         2. Screen Replica 1: The New Authorization Form (Header).
+            - Added Billing Org Key Instruction with enhanced styling for School-funded auths.
+            - Added 'Hold Billing Items' warning with red highlighting and an 'X'.
+         3. Screen Replica 2: The New Authorization Item Form (Line Items).
+            - Updated Limit Logic to 'Per Day' and MUE guidelines text.
+         4. Workflow Logic: Updating a placeholder when approved auth is received.
+    -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #F1F5F9; }
+        
+        .ui-form-container {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .ui-header {
+            background: #F8FAFC;
+            border-bottom: 1px solid #E2E8F0;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ui-field-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748B;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .ui-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #CBD5E1;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            background: #FDFDFD;
+        }
+
+        .callout-pulse {
+            position: relative;
+        }
+        .callout-pulse::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border: 2px solid #4F46E5;
+            border-radius: 6px;
+            animation: pulse 2s infinite;
+        }
+
+        .callout-pulse-amber::before { border-color: #F59E0B; }
+        .callout-pulse-rose::before { border-color: #E11D48; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            70% { transform: scale(1.05); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        .connector-line {
+            width: 2px;
+            background: #CBD5E1;
+            height: 40px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="text-slate-800 pb-20">
+
+    <!-- Header -->
+    <header class="bg-indigo-700 text-white py-10 px-6 shadow-xl text-center">
+        <div class="max-w-5xl mx-auto">
+            <h1 class="text-4xl font-extrabold tracking-tight">SBBC Lumary Training</h1>
+            <p class="text-indigo-100 mt-2 text-lg">Visualizing the Placeholder Workflow in Lumary ABA</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto p-6 space-y-12">
+
+        <!-- Simplified View Notice -->
+        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg shadow-sm">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <span class="text-amber-400 text-xl font-bold">ℹ</span>
+                </div>
+                <div class="ml-3">
+                    <p class="text-sm text-amber-800">
+                        <span class="font-bold">Note on Simplified Views:</span> The following screens are high-level replicas designed to highlight only the fields relevant to this workflow. Production screens will contain additional fields and will change over time; you can focus on these exclusively.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 1: The Header -->
+        <section>
+            <div class="flex items-center gap-4 mb-6">
+                <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg">1</span>
+                <h2 class="text-2xl font-bold text-slate-900">Step 1: The Authorization Header</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Mockup -->
+                <div class="lg:col-span-2 ui-form-container">
+                    <div class="ui-header">
+                        <span class="font-bold text-slate-700">New Authorization: Default</span>
+                        <div class="flex gap-2">
+                            <button class="px-3 py-1 bg-white border rounded text-xs">Cancel</button>
+                            <button class="px-3 py-1 bg-indigo-600 text-white rounded text-xs">Save</button>
+                        </div>
+                    </div>
+                    <div class="p-6 grid grid-cols-2 gap-6">
+                        <div class="col-span-1">
+                            <label class="ui-field-label">Client*</label>
+                            <div class="ui-input bg-slate-50 text-slate-400 italic">Pre-filled Name</div>
+                        </div>
+                        <div class="col-span-1">
+                            <label class="ui-field-label">Policy Coverage*</label>
+                            <div class="ui-input">Search Policies...</div>
+                        </div>
+                        <div class="col-span-1 callout-pulse">
+                            <label class="ui-field-label text-indigo-700 font-bold uppercase tracking-tighter">Authorization Number*</label>
+                            <div class="ui-input border-indigo-500 font-mono font-bold text-indigo-700">PLACEHOLDER</div>
+                        </div>
+                        <div class="col-span-1 callout-pulse">
+                            <label class="ui-field-label text-indigo-700 font-bold uppercase tracking-tighter">Billing Organization*</label>
+                            <div class="ui-input border-indigo-500 font-bold text-indigo-700">SBBC ABA Billing Organization</div>
+                        </div>
+                        <div class="col-span-1">
+                            <label class="ui-field-label">Start Date*</label>
+                            <div class="ui-input">10/01/2023</div>
+                        </div>
+                        <div class="col-span-1">
+                            <label class="ui-field-label">End Date*</label>
+                            <div class="ui-input">10/31/2023</div>
+                        </div>
+                        <div class="col-span-2">
+                            <label class="ui-field-label text-indigo-600 font-bold">Diagnosis 1*</label>
+                            <div class="ui-input border-indigo-200">Search and select Diagnosis code...</div>
+                        </div>
+                        
+                        <!-- Placeholder Checkbox -->
+                        <div class="col-span-2 p-4 bg-amber-50 rounded-lg border border-amber-200 flex items-center justify-between callout-pulse callout-pulse-amber">
+                            <div>
+                                <p class="font-bold text-amber-800 text-sm">Placeholder Authorization</p>
+                                <p class="text-xs text-amber-700">Checking this box moves all claims to 'Hold' status.</p>
+                            </div>
+                            <div class="w-6 h-6 bg-indigo-600 rounded flex items-center justify-center text-white">✓</div>
+                        </div>
+
+                        <!-- Hold Billing Items Warning -->
+                        <div class="col-span-2 p-4 bg-rose-50 rounded-lg border-2 border-rose-500 flex items-center justify-between callout-pulse callout-pulse-rose">
+                            <div>
+                                <p class="font-bold text-rose-800 text-sm">Hold Billing Items</p>
+                                <p class="text-xs text-rose-700 italic">LEAVE UNCHECKED. Not needed for placeholders and causes confusion.</p>
+                            </div>
+                            <div class="w-6 h-6 bg-white border-2 border-rose-500 rounded flex items-center justify-center text-rose-600 font-black">
+                                ✘
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Explanation -->
+                <div class="space-y-4">
+                    <div class="bg-indigo-50 p-5 rounded-xl border-l-4 border-indigo-600 shadow-sm">
+                        <h4 class="font-bold text-indigo-900 mb-2">Key Instruction: Auth #</h4>
+                        <p class="text-sm text-indigo-800 leading-relaxed">
+                            Always use the string <span class="font-mono bg-white px-1 rounded border">PLACEHOLDER</span> in the number field. This acts as a visual flag for the auditing and billing teams.
+                        </p>
+                    </div>
+                    <div class="bg-indigo-50 p-5 rounded-xl border-l-4 border-indigo-600 shadow-sm">
+                        <h4 class="font-bold text-indigo-900 mb-2">Key Instruction: Billing Org</h4>
+                        <p class="text-sm text-indigo-800 leading-relaxed mb-4">
+                            Select the **SBBC Billing Organization** (ABA, OT, or SLP) that matches the auth type.
+                        </p>
+                        <!-- Enhanced School Callout -->
+                        <div class="bg-amber-100/80 border border-amber-200 p-3 rounded-lg flex gap-3 items-start">
+                            <span class="text-xl">🏫</span>
+                            <div>
+                                <p class="text-[11px] font-bold text-amber-900 uppercase tracking-tight">Important Distinction</p>
+                                <p class="text-xs text-amber-800 leading-snug">
+                                    Use <strong>"School-Based Behavior Consultation (School)"</strong> only for school funded authorizations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-indigo-50 p-5 rounded-xl border-l-4 border-indigo-600 shadow-sm">
+                        <h4 class="font-bold text-indigo-900 mb-2">Key Instruction: Diagnosis</h4>
+                        <p class="text-sm text-indigo-800 leading-relaxed">
+                            The <strong>Diagnosis 1</strong> field is mandatory. Use the lookup to select the primary diagnosis already on the client record.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="connector-line"></div>
+
+        <!-- Phase 2: The Item -->
+        <section>
+            <div class="flex items-center gap-4 mb-6">
+                <span class="bg-cyan-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg">2</span>
+                <h2 class="text-2xl font-bold text-slate-900">Step 2: The Authorization Item</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Explanation -->
+                <div class="order-2 lg:order-1 space-y-4">
+                    <div class="bg-amber-50 p-5 rounded-xl border-l-4 border-amber-400 shadow-sm">
+                        <h4 class="font-bold text-amber-900 mb-2">The "30-Day" Guideline</h4>
+                        <p class="text-sm text-amber-800 leading-relaxed">
+                            Do not enter more than approximately <strong>one month of units</strong> on a placeholder item to ensure the placeholder isn't forgotten.
+                        </p>
+                    </div>
+                    <div class="bg-slate-100 p-5 rounded-xl border shadow-sm">
+                        <h4 class="font-bold text-slate-700 mb-2">Limit Logic</h4>
+                        <p class="text-xs text-slate-600 leading-relaxed">
+                            Set the limit in accordance with <span class="font-bold">MUE guidelines</span>. These frequency caps prevent over-scheduling during the waiting period.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mockup -->
+                <div class="lg:col-span-2 ui-form-container order-1 lg:order-2">
+                    <div class="ui-header" style="background: #ECFEFF;">
+                        <span class="font-bold text-cyan-900">New Authorization Item</span>
+                        <button class="px-3 py-1 bg-cyan-700 text-white rounded text-xs shadow-sm">Save</button>
+                    </div>
+                    <div class="p-6 grid grid-cols-2 gap-6">
+                        <div class="col-span-2 flex items-center gap-2 p-2 bg-slate-50 rounded border border-dashed border-slate-300">
+                            <span class="text-xs font-bold text-slate-400">PARENT AUTH:</span>
+                            <span class="text-xs font-mono text-indigo-600">PLACEHOLDER</span>
+                        </div>
+                        <div class="col-span-1">
+                            <label class="ui-field-label">Service*</label>
+                            <div class="ui-input text-cyan-700 font-bold">97153 (Adaptive Treatment)</div>
+                        </div>
+                        <div class="col-span-1 callout-pulse callout-pulse-amber">
+                            <label class="ui-field-label text-amber-600 font-bold">Total Units*</label>
+                            <div class="ui-input border-amber-300">480.00</div>
+                            <p class="text-[10px] text-amber-600 mt-1 italic">~1 month supply only</p>
+                        </div>
+                        <div class="col-span-1">
+                            <label class="ui-field-label">Limit Amount</label>
+                            <div class="ui-input">8</div>
+                        </div>
+                        <div class="col-span-1">
+                            <label class="ui-field-label">Limit Frequency</label>
+                            <div class="ui-input font-semibold text-cyan-700">Per Day</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 3: The Transition -->
+        <section class="bg-indigo-900 rounded-2xl p-8 text-white shadow-2xl">
+            <h2 class="text-2xl font-black mb-2 text-indigo-300 uppercase tracking-wide">Closing the Loop</h2>
+            <p class="text-indigo-100 mb-8 text-sm italic">Perform these steps only once the <strong>official approved authorization</strong> is received from the payor.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div class="bg-white/10 p-4 rounded-lg border border-white/20">
+                    <div class="text-amber-400 font-bold text-lg mb-2">1. Header Update</div>
+                    <p class="text-sm text-slate-300">Open the placeholder auth. Replace "PLACEHOLDER" with the real number and <span class="font-bold text-white">Uncheck</span> the Placeholder box.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg border border-white/20">
+                    <div class="text-amber-400 font-bold text-lg mb-2">2. Item Update</div>
+                    <p class="text-sm text-slate-300">You <span class="italic">must</span> navigate into each Item and update the Auth Number there too. It does not update automatically.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg border border-white/20">
+                    <div class="text-amber-400 font-bold text-lg mb-2">3. Unit Sync</div>
+                    <p class="text-sm text-slate-300">Adjust the Total Units from your 30-day "buffer" amount to the full amount granted by the payor.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto px-6 text-center">
+        <div class="border-t border-slate-200 pt-8">
+            <p class="text-xs text-slate-400 font-medium tracking-wide">SBBC - LUMARY ABA TRAINING - PLACEHOLDER WORKFLOW GUIDE</p>
+
+        </div>
+    </footer>
+
+</body>
+</html>
