@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBBC Training: Linking Employee Profiles to Lumary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #F1F5F9; }
+        
+        .ui-form-container {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .ui-header {
+            background: #F8FAFC;
+            border-bottom: 1px solid #E2E8F0;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ui-field-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748B;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .ui-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #CBD5E1;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            background: #FDFDFD;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-logo-watermark {
+            position: absolute;
+            right: -40px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-12deg);
+            width: 320px;
+            height: 320px;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Pulsing Callouts for Emphasis */
+        .callout-pulse { position: relative; }
+        .callout-pulse::before {
+            content: '';
+            position: absolute;
+            top: -4px; left: -4px; right: -4px; bottom: -4px;
+            border: 3px solid #4F46E5;
+            border-radius: 8px;
+            animation: pulse 2s infinite;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .callout-pulse-amber::before { border-color: #F59E0B; }
+        .callout-pulse-rose::before { border-color: #E11D48; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            70% { transform: scale(1.05); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        .connector-line {
+            width: 2px;
+            background: #CBD5E1;
+            height: 40px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="text-slate-800 pb-20">
+
+    <!-- Header Section (Styled to match Portal Hero) -->
+    <header class="bg-slate-900 text-white py-16 px-6 shadow-xl relative overflow-hidden">
+        <!-- Background Blur -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-indigo-600/10 blur-[100px] rounded-full"></div>
+        
+        <!-- Logo Watermark -->
+        <img 
+            src="SBBC__CircleLogo_white_outline.png" 
+            alt="" 
+            class="hero-logo-watermark hidden lg:block"
+        >
+
+        <div class="max-w-5xl mx-auto flex flex-col items-center text-center relative z-10">
+            <h1 class="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+                Employee Profile <br>
+                <span class="gradient-text">Linking Guide</span>
+            </h1>
+            <p class="text-slate-400 mt-4 text-lg font-light max-w-2xl">
+                Syncing staff records from HiRasmus to the Lumary Platform
+            </p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto p-6 space-y-12">
+
+        <!-- System Access & Simplified View Notice -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-indigo-600 p-4 rounded-xl shadow-md text-white flex gap-4">
+                <div class="flex-shrink-0 text-2xl">🌐</div>
+                <div>
+                    <p class="font-bold uppercase text-[10px] tracking-widest opacity-80">System Access</p>
+                    <p class="text-sm font-medium">Log into HiRasmus via:</p>
+                    <a href="https://app.hirasmus.com" target="_blank" class="text-xs underline font-mono">https://app.hirasmus.com</a>
+                </div>
+            </div>
+            <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg shadow-sm">
+                <div class="flex">
+                    <div class="flex-shrink-0"><span class="text-amber-400 text-xl font-bold">ℹ</span></div>
+                    <div class="ml-3">
+                        <p class="text-sm text-amber-800 leading-tight">
+                            <span class="font-bold">Note:</span> These simplified blueprints focus exclusively on the fields required for the linking process.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Locating the Staff Record -->
+        <section>
+            <div class="flex items-center gap-4 mb-6">
+                <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg">1</span>
+                <h2 class="text-2xl font-bold text-slate-900">Step 1: Locate the Employee</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Mockup -->
+                <div class="lg:col-span-2 ui-form-container">
+                    <div class="ui-header">
+                        <div class="flex flex-col">
+                            <span class="font-bold text-slate-700">Settings > Organization > Users</span>
+                            <span class="text-[10px] text-slate-400">HiRasmus User Management</span>
+                        </div>
+                        <div class="flex gap-2">
+                            <span class="text-[10px] text-slate-400 uppercase font-bold self-center mr-2">Status: Active</span>
+                        </div>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs">
+                            <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase font-bold">
+                                <tr>
+                                    <th class="px-4 py-3">Name</th>
+                                    <th class="px-4 py-3">Lumary Connection</th>
+                                    <th class="px-4 py-3">Role</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-100">
+                                <tr class="bg-indigo-50/50">
+                                    <td class="px-4 py-3 font-bold text-indigo-700 callout-pulse">Alex Staff, RBT</td>
+                                    <td class="px-4 py-3 text-rose-500 font-medium italic">Not Connected</td>
+                                    <td class="px-4 py-3 text-slate-500">Behavior Technician</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-slate-700">Jordan Supervisor</td>
+                                    <td class="px-4 py-3 text-emerald-600 font-medium">Connected</td>
+                                    <td class="px-4 py-3 text-slate-500">Supervisor</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 text-slate-700">Casey Coordinator</td>
+                                    <td class="px-4 py-3 text-rose-500 font-medium italic">Not Connected</td>
+                                    <td class="px-4 py-3 text-slate-500">Coordinator</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-indigo-50 p-5 rounded-xl border-l-4 border-indigo-600 shadow-sm">
+                        <h4 class="font-bold text-indigo-900 mb-2">Instructions</h4>
+                        <p class="text-sm text-indigo-800 leading-relaxed">Navigate to <strong>Settings > Organization > Users</strong>. Locate the employee where Lumary Connection is <strong>"Not Connected"</strong>. Click their name.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="connector-line"></div>
+
+        <!-- Section 2: Triggering the Link -->
+        <section>
+            <div class="flex items-center gap-4 mb-6">
+                <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg">2</span>
+                <h2 class="text-2xl font-bold text-slate-900">Step 2: Start the Integration</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="order-2 lg:order-1 space-y-4">
+                    <div class="bg-indigo-50 p-5 rounded-xl border-l-4 border-indigo-600 shadow-sm">
+                        <h4 class="font-bold text-indigo-900 mb-2">Access Tab</h4>
+                        <p class="text-sm text-indigo-800 leading-relaxed">In the employee's profile, click the <strong>ACCESS</strong> tab in the navigation sub-menu.</p>
+                    </div>
+                    <div class="bg-indigo-50 p-5 rounded-xl border-l-4 border-indigo-600 shadow-sm">
+                        <h4 class="font-bold text-indigo-900 mb-2">Linking Action</h4>
+                        <p class="text-sm text-indigo-800 leading-relaxed">Click <strong>"LINK TO LUMARY PROFILE"</strong> to open the search popup.</p>
+                    </div>
+                </div>
+
+                <!-- Mockup -->
+                <div class="lg:col-span-2 ui-form-container order-1 lg:order-2">
+                    <div class="ui-header">
+                        <span class="font-bold text-slate-700">Employee Profile: Alex Staff, RBT</span>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex gap-6 mb-8 border-b border-slate-200">
+                            <div class="pb-3 text-xs font-bold text-slate-400 uppercase tracking-wider">Profile</div>
+                            <div class="pb-3 text-xs font-bold text-indigo-600 border-b-2 border-indigo-600 uppercase tracking-wider">Access</div>
+                            <div class="pb-3 text-xs font-bold text-slate-400 uppercase tracking-wider">Credentialing</div>
+                        </div>
+                        <div class="flex flex-col items-center py-10 bg-slate-50 rounded-lg border border-dashed border-slate-200">
+                            <button class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-bold shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition-all callout-pulse">
+                                LINK TO LUMARY PROFILE
+                            </button>
+                            <p class="mt-4 text-xs text-slate-400">Sync status: Not Initialized</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="connector-line"></div>
+
+        <!-- Section 3: Mapping -->
+        <section>
+            <div class="flex items-center gap-4 mb-6">
+                <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg">3</span>
+                <h2 class="text-2xl font-bold text-slate-900">Step 3: Mapping the Record</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Mockup (Popup) -->
+                <div class="lg:col-span-2 relative">
+                    <div class="absolute inset-0 bg-slate-900/40 backdrop-blur-sm rounded-xl z-0"></div>
+                    <div class="relative z-10 ui-form-container m-10 shadow-2xl">
+                        <div class="ui-header bg-indigo-50 border-indigo-100">
+                            <span class="font-bold text-indigo-900 uppercase text-xs tracking-widest">Link to Lumary</span>
+                            <button class="text-slate-400">✕</button>
+                        </div>
+                        <div class="p-6">
+                            <div class="bg-rose-50 border border-rose-200 p-3 rounded mb-6 text-[11px] text-rose-800">
+                                <strong>⚠️ CRITICAL:</strong> Skip past all users marked as "Inactive".
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-slate-50 border border-slate-200 rounded-lg opacity-40">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-4 h-4 border rounded-full"></div>
+                                        <span class="text-sm font-medium">Alex Staff, RBT</span>
+                                    </div>
+                                    <span class="text-[9px] font-bold text-slate-400 uppercase bg-slate-200 px-2 py-0.5 rounded">Inactive</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-indigo-50 border border-indigo-400 rounded-lg callout-pulse">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-4 h-4 bg-indigo-600 border border-indigo-600 rounded-full flex items-center justify-center">
+                                            <div class="w-1.5 h-1.5 bg-white rounded-full"></div>
+                                        </div>
+                                        <span class="text-sm font-bold text-indigo-900">Alex Staff, RBT</span>
+                                    </div>
+                                    <span class="text-[9px] font-bold text-white uppercase bg-emerald-500 px-2 py-0.5 rounded">Active</span>
+                                </div>
+                            </div>
+                            <div class="mt-8 pt-6 border-t flex justify-end gap-3">
+                                <button class="px-4 py-2 text-xs font-bold text-slate-400">Cancel</button>
+                                <button class="px-6 py-2 bg-indigo-600 text-white text-xs font-bold rounded shadow-md shadow-indigo-100">SAVE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="bg-rose-50 p-5 rounded-xl border-l-4 border-rose-600 shadow-sm">
+                        <h4 class="font-bold text-rose-900 mb-2">Search Logic</h4>
+                        <p class="text-sm text-rose-800 leading-relaxed">Skip any entry marked as <strong>Inactive</strong>. Select the <strong>Active</strong> matching record and click <strong>SAVE</strong> at the bottom of the popup.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phase 3: Finalizing -->
+        <section class="bg-slate-900 rounded-2xl p-8 text-white shadow-2xl">
+            <h2 class="text-2xl font-black mb-2 text-slate-300 uppercase tracking-wide">Finalizing the Link</h2>
+            <p class="text-slate-400 mb-8 text-sm italic">Linking is a two-save process. One save for the search popup, one save for the profile.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white/10 p-6 rounded-lg border border-white/20">
+                    <div class="text-amber-400 font-bold text-lg mb-2">1st Save: Search Popup</div>
+                    <p class="text-sm text-slate-300 leading-relaxed">Clicking save in the search popup maps the ID but does not yet commit it. <strong>You are halfway done.</strong></p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-lg border border-white/20 callout-pulse-rose">
+                    <div class="text-rose-400 font-bold text-lg mb-2">2nd Save: Main Profile</div>
+                    <p class="text-sm text-slate-300 font-bold leading-relaxed uppercase">CRITICAL: Once the popup closes, you MUST click the "SAVE" button on the main employee profile page to finalize the link permanently.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto px-6 text-center border-t border-slate-200 pt-8">
+        <p class="text-xs text-slate-400 font-medium tracking-wide uppercase">School-Based Behavior Consultation - LUMARY TRAINING</p>
+        <p class="text-[10px] text-slate-300 mt-2 uppercase">Guide version 2.4 • HiRasmus Navigation Updated Jan 2026</p>
+    </footer>
+
+</body>
+</html>
