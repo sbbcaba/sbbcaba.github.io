@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumary Training Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #F1F5F9; }
+        
+        /* UI Blueprint Containers */
+        .ui-form-container {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .ui-header {
+            background: #F8FAFC;
+            border-bottom: 1px solid #E2E8F0;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ui-field-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748B;
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        .ui-input {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #CBD5E1;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            background: #FDFDFD;
+        }
+
+        /* Pulsing Callouts for Emphasis */
+        .callout-pulse { position: relative; }
+        .callout-pulse::before {
+            content: '';
+            position: absolute;
+            top: -4px; left: -4px; right: -4px; bottom: -4px;
+            border: 2px solid #4F46E5;
+            border-radius: 6px;
+            animation: pulse 2s infinite;
+        }
+        .callout-pulse-amber::before { border-color: #F59E0B; }
+        .callout-pulse-rose::before { border-color: #E11D48; }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            70% { transform: scale(1.05); opacity: 0; }
+            100% { transform: scale(1); opacity: 0; }
+        }
+
+        .connector-line {
+            width: 2px;
+            background: #CBD5E1;
+            height: 40px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body class="text-slate-800 pb-20">
+
+    <!-- Header Section -->
+    <header class="bg-indigo-700 text-white py-10 px-6 shadow-xl text-center">
+        <div class="max-w-5xl mx-auto">
+            <h1 class="text-4xl font-extrabold tracking-tight">Template Title</h1>
+            <p class="text-indigo-100 mt-2 text-lg">Subtitle describing the workflow purpose</p>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto p-6 space-y-12">
+
+        <!-- Simplified View Notice (Optional) -->
+        <div class="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg shadow-sm">
+            <div class="flex">
+                <div class="flex-shrink-0"><span class="text-amber-400 text-xl font-bold">ℹ</span></div>
+                <div class="ml-3">
+                    <p class="text-sm text-amber-800">
+                        <span class="font-bold">Note on Simplified Views:</span> These screens highlight specific relevant fields. Production may vary.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: UI Mockup with Sidebar -->
+        <section>
+            <div class="flex items-center gap-4 mb-6">
+                <span class="bg-indigo-600 text-white w-10 h-10 rounded-full flex items-center justify-center font-bold shadow-lg">1</span>
+                <h2 class="text-2xl font-bold text-slate-900">Step Title Here</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Mockup Area -->
+                <div class="lg:col-span-2 ui-form-container">
+                    <div class="ui-header">
+                        <span class="font-bold text-slate-700">Screen Name</span>
+                        <div class="flex gap-2">
+                            <button class="px-3 py-1 bg-indigo-600 text-white rounded text-xs">Action Button</button>
+                        </div>
+                    </div>
+                    <div class="p-6 grid grid-cols-2 gap-6">
+                        <!-- Standard Field -->
+                        <div class="col-span-1">
+                            <label class="ui-field-label">Field Label</label>
+                            <div class="ui-input">Value Placeholder...</div>
+                        </div>
+
+                        <!-- Pulsing Field (Indigo) -->
+                        <div class="col-span-1 callout-pulse">
+                            <label class="ui-field-label text-indigo-700 font-bold">Important Field</label>
+                            <div class="ui-input border-indigo-500 font-bold">Important Value</div>
+                        </div>
+
+                        <!-- Warning Style Field (Rose) -->
+                        <div class="col-span-2 p-4 bg-rose-50 rounded-lg border-2 border-rose-500 flex items-center justify-between">
+                            <div>
+                                <p class="font-bold text-rose-800 text-sm">Negative Instruction</p>
+                                <p class="text-xs text-rose-700 italic">Description of what to avoid.</p>
+                            </div>
+                            <div class="text-rose-600 font-black">✘</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Explanation Area -->
+                <div class="space-y-4">
+                    <div class="bg-indigo-50 p-5 rounded-xl border-l-4 border-indigo-600 shadow-sm">
+                        <h4 class="font-bold text-indigo-900 mb-2">Key Instruction</h4>
+                        <p class="text-sm text-indigo-800 leading-relaxed">Explanation for the specific field or logic.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="connector-line"></div>
+
+        <!-- Phase 3: Transition/Completion Grid -->
+        <section class="bg-slate-900 rounded-2xl p-8 text-white shadow-2xl">
+            <h2 class="text-2xl font-black mb-2 text-slate-300 uppercase tracking-wide">Closing Steps</h2>
+            <p class="text-slate-400 mb-8 text-sm italic">Final reminders or trigger-based actions.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div class="bg-white/10 p-4 rounded-lg border border-white/20">
+                    <div class="text-amber-400 font-bold text-lg mb-2">Step A</div>
+                    <p class="text-sm text-slate-300">Actionable detail goes here.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg border border-white/20">
+                    <div class="text-amber-400 font-bold text-lg mb-2">Step B</div>
+                    <p class="text-sm text-slate-300">Actionable detail goes here.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg border border-white/20">
+                    <div class="text-amber-400 font-bold text-lg mb-2">Step C</div>
+                    <p class="text-sm text-slate-300">Actionable detail goes here.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="max-w-5xl mx-auto px-6 text-center">
+        <div class="border-t border-slate-200 pt-8">
+            <p class="text-xs text-slate-400 font-medium tracking-wide uppercase">Department Name - Project Name - Guide Name</p>
+        </div>
+    </footer>
+
+</body>
+</html>
