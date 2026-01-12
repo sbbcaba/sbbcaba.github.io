@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School-Based Behavior Consultation Training Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        body { font-family: 'Inter', sans-serif; background-color: #F8FAFC; }
+        
+        .portal-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #E2E8F0;
+        }
+
+        .portal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-color: #4F46E5;
+        }
+
+        .icon-box {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #4F46E5 0%, #06B6D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-logo-watermark {
+            position: absolute;
+            right: -80px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-15deg);
+            width: 500px;
+            height: 500px;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .brand-logo-small {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Hero Section -->
+    <section class="bg-slate-900 text-white py-16 px-6 relative overflow-hidden">
+        <!-- Background Blur -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-indigo-600/10 blur-[120px] rounded-full"></div>
+        
+        <!-- Logo Watermark -->
+        <img 
+            src="SBBC__CircleLogo_white_outline.png" 
+            alt="" 
+            class="hero-logo-watermark hidden lg:block"
+            
+        >
+
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row md:items-center gap-8 text-center md:text-left">
+                <!-- Visible Logo -->
+                <div class="flex justify-center md:justify-start">
+                    <img 
+                        src="SBBC__CircleLogo_white_outline.png" 
+                        alt="SBBC Logo" 
+                        class="brand-logo-small border-2 border-white/20 rounded-full p-1 bg-white/5"
+                        onerror="this.style.display='none'"
+                    >
+                </div>
+                
+                <div class="flex-grow">
+                    <div class="inline-block px-4 py-1.5 mb-4 text-xs font-bold tracking-widest uppercase bg-indigo-500/20 border border-indigo-500/30 rounded-full text-indigo-300">
+                        Staff Resources
+                    </div>
+                    <h1 class="text-3xl md:text-5xl font-black mb-4 leading-tight">
+                        School-Based Behavior Consultation <br><span class="gradient-text text-4xl md:text-6xl">Training Portal</span>
+                    </h1>
+                    <p class="text-slate-400 text-lg max-w-2xl leading-relaxed">
+                        A centralized repository of clinical blueprints, workflow guides, and standardized procedures for the SBBC team.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guide Directory -->
+    <main class="max-w-6xl mx-auto px-6 -mt-8 pb-24">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Authorization Guide Card -->
+            <a href="lumary_auth_infographic.html" class="portal-card bg-white p-8 rounded-2xl flex flex-col group">
+                <div class="icon-box bg-indigo-100 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                    📄
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">Placeholder Authorizations</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">
+                    Learn how to set up placeholder records with "30-day" guidelines, SBBC billing orgs, and MUE limit logic.
+                </p>
+                <div class="flex items-center text-indigo-600 font-bold text-sm">
+                    View Guide <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                </div>
+            </a>
+
+            <!-- Template Card (For Admins) -->
+            <a href="lumary_guide_template.html" class="portal-card bg-white p-8 rounded-2xl flex flex-col group">
+                <div class="icon-box bg-cyan-100 text-cyan-600 group-hover:bg-cyan-600 group-hover:text-white transition-colors">
+                    🛠
+                </div>
+                <h3 class="text-xl font-bold text-slate-900 mb-3 tracking-tight">Workflow Blueprint Template</h3>
+                <p class="text-slate-500 text-sm leading-relaxed mb-8 flex-grow">
+                    Standardized HTML template for creating future training guides. Features pulsing callouts and UI blueprints.
+                </p>
+                <div class="flex items-center text-cyan-600 font-bold text-sm">
+                    Open Editor <span class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                </div>
+            </a>
+
+            <!-- Placeholder Slots -->
+            <div class="portal-card bg-slate-50 border-dashed border-2 border-slate-200 p-8 rounded-2xl flex flex-col opacity-60">
+                <div class="icon-box bg-slate-200 text-slate-400">🔒</div>
+                <h3 class="text-xl font-bold text-slate-400 mb-3 tracking-tight">Onboarding a Client</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">Standardized procedure for initial client intake and insurance setup.</p>
+                <div class="text-slate-300 font-bold text-sm uppercase tracking-widest">Coming Soon</div>
+            </div>
+        </div>
+
+        <!-- Support Section -->
+        <section class="mt-20 bg-indigo-50 rounded-3xl p-10 flex flex-col md:flex-row items-center justify-between gap-8 border border-indigo-100">
+            <div class="max-w-xl text-center md:text-left">
+                <h2 class="text-2xl font-bold text-indigo-900 mb-2">Need a specific guide?</h2>
+                <p class="text-indigo-700/80">If there is a workflow causing friction for your team, please reach out to the Training Coordinator to request a new blueprint.</p>
+            </div>
+            <button class="bg-indigo-600 text-white px-8 py-3 rounded-full font-bold hover:bg-indigo-700 transition-colors shadow-lg shadow-indigo-200">
+                Contact Support
+            </button>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-slate-400 text-sm font-medium uppercase tracking-widest mb-2">School-Based Behavior Consultation</p>
+            <p class="text-slate-300 text-xs">Version 1.2 • Jan 2026 • Lumary ABA Training Portal</p>
+        </div>
+    </footer>
+
+</body>
+</html>
