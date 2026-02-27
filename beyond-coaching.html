@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beyond Coaching</title>
+    <!-- Modern Typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Feather Icons for lightweight, beautiful icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+  </head>
+  <body>
+    <div id="app">
+      <!-- Animated Background -->
+      <div class="background-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="noise-overlay"></div>
+      </div>
+
+      <div class="slides-container" id="slides-container">
+        <!-- Slide 1: Title -->
+        <section class="slide active" data-slide="1">
+          <div class="slide-wrapper center-content">
+            <div class="glass-card title-card enter-animate">
+              <div class="title-content">
+                <div class="badge">SBBC Leadership Development</div>
+                <h1 class="gradient-text">Beyond Coaching</h1>
+                <div class="divider"></div>
+                <h2>Navigating Complex Discipline and Operational Risk</h2>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 2: The Critical Pivot -->
+        <section class="slide" data-slide="2">
+          <div class="slide-wrapper">
+            <div class="slide-header enter-animate">
+              <h2>The Critical Pivot: Why We Are Here</h2>
+            </div>
+            <div class="slide-content">
+              <div class="split-screen enter-animate delay-1">
+                <div class="split-left glass-card fade-out-simulation">
+                  <h3>Developmental Phase</h3>
+                  <p class="subtext">Focus: Growth, empathy, & coaching.</p>
+                </div>
+                <div class="split-icon">
+                  <i data-feather="arrow-right" class="highlight-icon"></i>
+                </div>
+                <div class="split-right glass-card feature-focus">
+                  <h3>Risk-Mitigation Phase</h3>
+                  <p>
+                    <strong>The Pivot:</strong> When behavior or performance
+                    threatens stability, safety, or team morale.
+                  </p>
+                </div>
+              </div>
+
+              <div class="gap-comparison enter-animate delay-2">
+                <div class="gap skill-gap glass-card">
+                  <h4>Skill Gap</h4>
+                  <p>Inability to change</p>
+                  <span class="action-tag blue-tag"
+                    >Requires Coaching/Training</span
+                  >
+                </div>
+                <div class="gap will-gap glass-card border-glow">
+                  <h4>Will Gap</h4>
+                  <p>Refusal to change</p>
+                  <span class="action-tag red-tag">Requires Action</span>
+                </div>
+              </div>
+
+              <div
+                class="hard-truth glass-card danger-box flex-row enter-animate delay-3"
+              >
+                <i data-feather="alert-triangle" class="danger-icon"></i>
+                <p>
+                  <strong>The Hard Truth:</strong> Continuing to coach a "will"
+                  gap isn't kind it's negligent.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 3: Business Protector vs. Mentor -->
+        <section class="slide" data-slide="3">
+          <div class="slide-wrapper">
+            <div class="slide-header enter-animate">
+              <h2>The Mindset Shift</h2>
+              <p class="subtitle">Change Your Internal Narrative</p>
+            </div>
+            <div class="slide-content">
+              <div class="mindset-shift-container enter-animate delay-1">
+                <div class="mindset-card mentor glass-card hover-lift">
+                  <i data-feather="users" class="card-icon blue-icon"></i>
+                  <h3>Mentor Mindset</h3>
+                  <div class="quote-box">
+                    <p>"How can I help them grow?"</p>
+                  </div>
+                  <span class="from-label">FROM</span>
+                </div>
+                <div class="shift-arrow">
+                  <i data-feather="chevrons-right" class="animated-arrow"></i>
+                </div>
+                <div
+                  class="mindset-card protector glass-card hover-lift active-protector"
+                >
+                  <i data-feather="shield" class="card-icon teal-icon"></i>
+                  <h3>Business Protector</h3>
+                  <div class="quote-box highlight-quote">
+                    <p>
+                      "How can I protect the standards and operations of this
+                      company?"
+                    </p>
+                  </div>
+                  <span class="to-label">TO</span>
+                </div>
+              </div>
+
+              <div class="two-column-factors enter-animate delay-2">
+                <div class="factor-block glass-card light-glass">
+                  <h4>
+                    <i data-feather="heart" class="sm-icon"></i> The Compassion
+                    Factor
+                  </h4>
+                  <p>
+                    You can care for a person while recognizing they are no
+                    longer a fit.
+                  </p>
+                </div>
+                <div class="factor-block glass-card light-glass">
+                  <h4>
+                    <i data-feather="award" class="sm-icon"></i> The Ultimate
+                    Respect
+                  </h4>
+                  <p>
+                    Professionalism is the highest form of respect you can offer
+                    during a termination.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 4: ASK - TELL - MAKE -->
+        <section class="slide" data-slide="4">
+          <div class="slide-wrapper">
+            <div class="slide-header enter-animate">
+              <h2>The Framework: ASK – TELL – MAKE</h2>
+            </div>
+            <div class="slide-content">
+              <div class="chevron-process">
+                <!-- Ask -->
+                <div
+                  class="process-step glass-card hover-glow enter-animate delay-1"
+                >
+                  <div class="step-header">
+                    <div class="step-number">1</div>
+                    <div class="step-role">
+                      ASK <span class="role-desc">(The Investigator)</span>
+                    </div>
+                  </div>
+                  <div class="step-details">
+                    <div class="detail-row">
+                      <span class="detail-label">Goal:</span>
+                      <div class="detail-content">
+                        Eliminate Excuses.<br /><em
+                          >"Is there any barrier I don't know about?"</em
+                        >
+                      </div>
+                    </div>
+                    <div class="detail-row">
+                      <span class="detail-label">Trigger:</span>
+                      <div class="detail-content">
+                        Final verification they have the tools/knowledge to
+                        succeed.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tell -->
+                <div
+                  class="process-step glass-card hover-glow enter-animate delay-2"
+                >
+                  <div class="step-header">
+                    <div class="step-number">2</div>
+                    <div class="step-role">
+                      TELL <span class="role-desc">(The Director)</span>
+                    </div>
+                  </div>
+                  <div class="step-details">
+                    <div class="detail-row">
+                      <span class="detail-label">Goal:</span>
+                      <div class="detail-content">
+                        Establish the Mandate.<br /><em
+                          >"I am directing you to do X; failure to do so results
+                          in Y."</em
+                        >
+                      </div>
+                    </div>
+                    <div class="detail-row">
+                      <span class="detail-label">Trigger:</span>
+                      <div class="detail-content">
+                        Removing all ambiguity. The employee must understand
+                        their job is at risk.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Make -->
+                <div
+                  class="process-step glass-card hover-glow accent-glow enter-animate delay-3"
+                >
+                  <div class="step-header">
+                    <div class="step-number final-step">3</div>
+                    <div class="step-role text-teal">
+                      MAKE <span class="role-desc">(The Executor)</span>
+                    </div>
+                  </div>
+                  <div class="step-details">
+                    <div class="detail-row">
+                      <span class="detail-label">Goal:</span>
+                      <div class="detail-content">
+                        Enforce Accountability.<br /><em
+                          >"Because X did not happen, we are proceeding with
+                          Y."</em
+                        >
+                      </div>
+                    </div>
+                    <div class="detail-row">
+                      <span class="detail-label">Trigger:</span>
+                      <div class="detail-content">
+                        Protecting the business by following through on stated
+                        consequences.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 5: Operational Speed -->
+        <section class="slide" data-slide="5">
+          <div class="slide-wrapper">
+            <div class="slide-header enter-animate">
+              <h2>Operational Speed: Why "Quickly" is a Metric</h2>
+              <div class="alert-banner">
+                <i data-feather="alert-octagon"></i>
+                <span>In complex discipline, slowness is a liability.</span>
+              </div>
+            </div>
+            <div class="slide-content">
+              <div class="warning-cards">
+                <div
+                  class="warning-card glass-card hover-lift enter-animate delay-1"
+                >
+                  <div class="icon-wrapper red-glow">
+                    <i data-feather="users" class="warning-icon"></i>
+                    <div class="crack-effect"></div>
+                  </div>
+                  <h3>Team Erosion</h3>
+                  <p>
+                    High-performers lose faith when toxic behavior or
+                    incompetence lingers.
+                  </p>
+                </div>
+                <div
+                  class="warning-card glass-card hover-lift enter-animate delay-2"
+                >
+                  <div class="icon-wrapper orange-glow">
+                    <i data-feather="briefcase" class="warning-icon"></i>
+                    <i data-feather="alert-triangle" class="badge-icon"></i>
+                  </div>
+                  <h3>Legal Risk</h3>
+                  <p>Inconsistent timelines make discipline look arbitrary.</p>
+                </div>
+                <div
+                  class="warning-card glass-card hover-lift enter-animate delay-3"
+                >
+                  <div class="icon-wrapper yellow-glow pulse-animation">
+                    <i
+                      data-feather="battery"
+                      class="warning-icon drain-animation"
+                    ></i>
+                  </div>
+                  <h3>Resource Drain</h3>
+                  <p>
+                    Every hour spent "re-coaching" failure is stolen from your
+                    best assets.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="goal-box glass-card accent-border enter-animate delay-4"
+              >
+                <div class="goal-icon"><i data-feather="target"></i></div>
+                <div class="goal-text">
+                  <strong>The Goal: Clinical Efficiency.</strong>
+                  If the "Tell" phase fails, move to "Make" immediately.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 6: Executing the "Tell" -->
+        <section class="slide" data-slide="6">
+          <div class="slide-wrapper">
+            <div class="slide-header enter-animate">
+              <h2>Executing the "Tell" with Precision</h2>
+              <p class="subtitle">
+                Where cases get stuck: Ambiguous communication in the "Tell"
+                phase.
+              </p>
+            </div>
+            <div class="slide-content">
+              <div class="tell-layout">
+                <div class="checklist-section enter-animate delay-1">
+                  <h3 class="checklist-title">
+                    The 3 Components of a Successful "Tell":
+                  </h3>
+                  <ul class="success-checklist">
+                    <li class="glass-card slide-in-right delay-2">
+                      <div class="check-icon bg-blue">
+                        <i data-feather="file-text"></i>
+                      </div>
+                      <div class="check-text">
+                        <strong>The Directive:</strong><br />A clear,
+                        non-negotiable instruction.
+                      </div>
+                    </li>
+                    <li class="glass-card slide-in-right delay-3">
+                      <div class="check-icon bg-orange">
+                        <i data-feather="clock"></i>
+                      </div>
+                      <div class="check-text">
+                        <strong>The Deadline:</strong><br />A specific date/time
+                        for compliance.
+                      </div>
+                    </li>
+                    <li class="glass-card slide-in-right delay-4">
+                      <div class="check-icon bg-red">
+                        <i data-feather="alert-octagon"></i>
+                      </div>
+                      <div class="check-text">
+                        <strong>The Consequence:</strong><br />A transparent
+                        statement of what happens if missed.
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="example-section enter-animate delay-5">
+                  <div class="example-callout glass-card solid-glow">
+                    <div class="callout-label">
+                      <i data-feather="message-square"></i> EXAMPLE SCRIPT
+                    </div>
+                    <p class="callout-quote">
+                      "I am directing you to complete the safety audit by Friday
+                      at 4 PM. If this is not completed accurately and on time,
+                      we will move forward with a formal recommendation for
+                      termination."
+                    </p>
+                    <div class="quote-marks">"</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slide 7: Summary -->
+        <section class="slide" data-slide="7">
+          <div class="slide-wrapper">
+            <div class="slide-header enter-animate">
+              <h2>Summary for Leaders</h2>
+            </div>
+            <div class="slide-content">
+              <div class="summary-pillars">
+                <div class="pillar glass-card hover-glow enter-animate delay-1">
+                  <div class="pillar-icon bg-navy">
+                    <i data-feather="briefcase"></i>
+                  </div>
+                  <h3>Detach with Professionalism</h3>
+                  <p>Manage the role, not the person's emotions.</p>
+                </div>
+                <div class="pillar glass-card hover-glow enter-animate delay-2">
+                  <div class="pillar-icon bg-teal">
+                    <i data-feather="zap"></i>
+                  </div>
+                  <h3>Be Fair, but Be Fast</h3>
+                  <p>
+                    Give them the chance to comply (Ask/Tell), but if they
+                    don't, pull the trigger (Make).
+                  </p>
+                </div>
+                <div class="pillar glass-card hover-glow enter-animate delay-3">
+                  <div class="pillar-icon bg-blue">
+                    <i data-feather="edit-3"></i>
+                  </div>
+                  <h3>Document the "Will"</h3>
+                  <p>
+                    Focus your notes on the fact that the employee chose
+                    <em>not</em> to meet the clearly defined standard.
+                  </p>
+                </div>
+              </div>
+              <div class="thank-you enter-animate delay-4">
+                <div class="glass-card footer-card">
+                  <h3>Ready to protect the business.</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <button
+          id="prevBtn"
+          class="control-btn glass-btn"
+          aria-label="Previous Slide"
+        >
+          <i data-feather="chevron-left"></i>
+        </button>
+        <div class="progress-container glass-card">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+        <button
+          id="nextBtn"
+          class="control-btn glass-btn"
+          aria-label="Next Slide"
+        >
+          <i data-feather="chevron-right"></i>
+        </button>
+      </div>
+
+      <!-- Pagination Dots -->
+      <div class="pagination-dots" id="pagination-dots"></div>
+
+      <!-- Speaker Notes Toggle -->
+      <button
+        id="notesToggle"
+        class="notes-toggle-btn glass-btn"
+        aria-label="Toggle Speaker Notes"
+      >
+        <i data-feather="book-open"></i> Notes
+      </button>
+
+      <!-- Speaker Notes Panel -->
+      <div id="notesPanel" class="notes-panel glass-panel">
+        <div class="notes-header">
+          <h3><i data-feather="mic"></i> Speaker Notes</h3>
+          <button id="closeNotesBtn" class="close-btn" aria-label="Close Notes">
+            <i data-feather="x"></i>
+          </button>
+        </div>
+        <div class="notes-content" id="notes-content">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Script data for notes -->
+    <script>
+      const slideNotes = {
+        1: "Most leadership training we attend focuses on 'pulling' performance out of people through empathy and development. That is incredibly valuable, but that is not what we are talking about today. Today, we are discussing the precise moment when coaching has failed, and what we as leaders must do to mitigate risk.",
+        2: "When an employee becomes a threat to our business stability, safety, or team morale, we are no longer coaching. We have to recognize the difference between a skill gap where someone needs more training and a will gap—where they simply refuse to meet the standard. The hard truth is this: continuing to coach someone who has a 'will' gap isn't kind. It is negligent. It jeopardizes the business and punishes your high-performers who are forced to pick up the slack.",
+        3: "To handle complex discipline well, your internal narrative has to change. You must step out of the 'Mentor' role and into the role of the 'Business Protector.' This doesn't mean we become cold or robotic. It is entirely possible to care for an individual as a human being while simultaneously making the hard call that they are no longer a fit for the role. Remember: being highly professional, direct, and clear is the most respectful and compassionate way to handle an exit.",
+        4: "In complex discipline, you need a clear, defensible path toward resolution or exit. First, we 'Ask.' Be the investigator to ensure there are no hidden barriers or lack of resources. Once excuses are eliminated, we 'Tell.' Step into the director role and set a clear mandate, removing all ambiguity. Finally, we 'Make.' Be the executor. If they fail to meet the mandate, you must enforce accountability. If you don't execute the 'Make' phase, the whole framework collapses.",
+        5: "Time is not on your side in these situations. Speed matters. If you move too slowly, three things happen: First, your best people lose respect for you when they see incompetence tolerated. Second, dragged-out timelines invite legal risk by making consequences look arbitrary. Third, you drain your own resources. Every hour you spend dragging your feet on a failing employee is an hour stolen from your best people. If the situation isn't resolved at the 'Tell' stage, move to final warning or termination with clinical efficiency.",
+        6: "The 'Tell' phase is where leaders usually falter because they naturally want to soften the blow. Do not soften the language. You must be precise to be fair. Your 'Tell' must have three exact components: a non-negotiable directive, a hard deadline, and a transparent consequence. Look at the example on the screen. Notice the language. There is no guessing here. The employee knows exactly what they need to do, when they need to do it, and what happens if they don't.",
+        7: "To wrap up our time today, keep these three principles in mind. First, detach professionally. You cannot manage how they feel; you can only manage the requirements of the role. Second, be fair by giving them a clear chance to comply, but be fast in acting if they fail to meet it. Finally, when you document these conversations for HR, focus on the 'will.' Make it clear in your notes that the standard was set, the tools were provided, and the employee made the active choice not to meet the standard. Thank you.",
+      };
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
